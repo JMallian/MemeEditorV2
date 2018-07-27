@@ -9,5 +9,9 @@
 import UIKit
 
 class MemeCollectionViewController: UICollectionViewController {
+    @IBOutlet var flowLayout: UICollectionViewFlowLayout!
+}
+
+class MemeCollectionViewCell: UICollectionViewCell {
     
 }
