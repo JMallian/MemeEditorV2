@@ -9,6 +9,7 @@
 import UIKit
 class MemesNavigationController: UINavigationController {
 
+    // I guess this is not where you add this because it doesn't show up if put here - put it in MemeCollectionViewController and MemeTableViewController 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))

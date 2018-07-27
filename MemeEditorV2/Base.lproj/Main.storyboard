@@ -77,10 +77,10 @@
             </objects>
             <point key="canvasLocation" x="-897" y="230"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Table Recent Memes-->
         <scene sceneID="stS-gb-gNn">
             <objects>
-                <tableViewController id="vIc-h8-y6s" customClass="MemeTableViewController" customModule="MemeEditorV2" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Table Recent Memes" id="vIc-h8-y6s" customClass="MemeTableViewController" customModule="MemeEditorV2" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ol5-ee-owH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -109,7 +109,7 @@
         <!--Item-->
         <scene sceneID="Ye7-Z5-ObI">
             <objects>
-                <navigationController id="azu-xc-UAz" sceneMemberID="viewController">
+                <navigationController id="azu-xc-UAz" customClass="MemesNavigationController" customModule="MemeEditorV2" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="c5i-sB-95U"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eA6-Fo-hl0">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -123,10 +123,10 @@
             </objects>
             <point key="canvasLocation" x="-95" y="785"/>
         </scene>
-        <!--Meme Collection View Controller-->
+        <!--Collection Recent Memes-->
         <scene sceneID="EwM-Ed-AnC">
             <objects>
-                <collectionViewController id="lDO-KS-ctJ" customClass="MemeCollectionViewController" customModule="MemeEditorV2" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController title="Collection Recent Memes" id="lDO-KS-ctJ" customClass="MemeCollectionViewController" customModule="MemeEditorV2" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="idh-JM-MOx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -164,7 +164,7 @@
         <!--Item-->
         <scene sceneID="ELJ-ni-zJ3">
             <objects>
-                <navigationController id="bzz-op-0P9" sceneMemberID="viewController">
+                <navigationController id="bzz-op-0P9" customClass="MemesNavigationController" customModule="MemeEditorV2" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="I5h-Td-gJ3"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Liz-8Z-8TS">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
