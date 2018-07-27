@@ -9,7 +9,28 @@
 import UIKit
 
 class MemeCollectionViewController: UICollectionViewController {
+    
+    // MARK: properties 
     @IBOutlet var flowLayout: UICollectionViewFlowLayout!
+    var data: [Meme] {
+        let object = UIApplication.shared.delegate
+        let appDelegate = object as! AppDelegate
+        return appDelegate.memeArray
+    }
+    
+    // MARK: delegate properties
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        <#code#>
+    }
+    
+    // MARK: data source properties
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return data.count
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        <#code#>
+    }
 }
 
 class MemeCollectionViewCell: UICollectionViewCell {
