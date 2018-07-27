@@ -10,15 +10,17 @@ import UIKit
 
 class MemeEditorViewController: UIViewController {
 
+    // MARK: properties
+    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var topLabel: UILabel!
+    @IBOutlet weak var bottomLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+
 
 
 }
