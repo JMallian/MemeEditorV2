@@ -32,6 +32,8 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate {
         setTextFieldAttributesAndDelegate(text: "TOP", textField: topTextField)
     }
     
+    
+    //MARK textfields and keyboard functions
     func setTextFieldAttributesAndDelegate(text: String, textField: UITextField) {
         textField.defaultTextAttributes = memeTextAttributes
         textField.text = text
@@ -42,6 +44,18 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate {
         textField.delegate = self
     }
 
+    //keyboard will disappear if user hits Return key on keyboard
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    //default text will disappear when user starts to edit textfield
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField.text == "TOP" || textField.text == "BOTTOM" {
+            textField.text = ""
+        }
+    }
 
 
 
