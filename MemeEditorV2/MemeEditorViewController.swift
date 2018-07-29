@@ -38,11 +38,13 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate {
         //takePictureButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         //wnat to know when keyboard will appear in order to move the view up so the appearance of the keyboard doesn't cover the bottom textfield
         subscribeToKeyboardNotifications()
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         unsubscribeFromKeyboardNotifications()
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     
