@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NbC-mG-F1P">
-                                <rect key="frame" x="0.0" y="20" width="375" height="30"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -33,19 +33,48 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3eR-Hs-GcT">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="erb-gN-TrS"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Cf2-GY-1v5"/>
+                                    <barButtonItem title="Item" id="7Y3-Md-Jj5"/>
+                                    <barButtonItem title="Item" id="71a-pP-d6T"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="7Ok-cn-Gm3"/>
+                                </items>
+                            </toolbar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ad-5s-qWp">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="01K-NF-pTN"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Item" id="o5D-nM-Rjb"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="kda-zB-EeF"/>
+                                    <barButtonItem title="Item" id="nxa-fy-VKA"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="NbC-mG-F1P" firstAttribute="top" secondItem="6fJ-th-czB" secondAttribute="top" id="1RE-cp-S7B"/>
                             <constraint firstItem="6fJ-th-czB" firstAttribute="trailing" secondItem="MnD-Yo-K3K" secondAttribute="trailing" id="4ku-ZJ-qqJ"/>
+                            <constraint firstItem="2ad-5s-qWp" firstAttribute="top" secondItem="6fJ-th-czB" secondAttribute="top" id="6xq-fL-jAb"/>
                             <constraint firstItem="MnD-Yo-K3K" firstAttribute="leading" secondItem="6fJ-th-czB" secondAttribute="leading" id="AQv-OP-RQk"/>
+                            <constraint firstItem="2ad-5s-qWp" firstAttribute="leading" secondItem="6fJ-th-czB" secondAttribute="leading" id="DSa-RH-eWD"/>
                             <constraint firstItem="6fJ-th-czB" firstAttribute="bottom" secondItem="MnD-Yo-K3K" secondAttribute="bottom" id="EOp-u7-hmF"/>
                             <constraint firstItem="q27-nM-FZb" firstAttribute="leading" secondItem="6fJ-th-czB" secondAttribute="leading" id="HRu-F0-Ldn"/>
                             <constraint firstItem="6fJ-th-czB" firstAttribute="trailing" secondItem="q27-nM-FZb" secondAttribute="trailing" id="PCr-U3-Ydf"/>
                             <constraint firstItem="q27-nM-FZb" firstAttribute="bottom" secondItem="6fJ-th-czB" secondAttribute="bottom" id="Uzu-C8-Rd1"/>
+                            <constraint firstItem="3eR-Hs-GcT" firstAttribute="leading" secondItem="6fJ-th-czB" secondAttribute="leading" id="b4i-mU-eKc"/>
+                            <constraint firstItem="2ad-5s-qWp" firstAttribute="trailing" secondItem="6fJ-th-czB" secondAttribute="trailing" id="eqM-lk-0gu"/>
+                            <constraint firstItem="3eR-Hs-GcT" firstAttribute="bottom" secondItem="6fJ-th-czB" secondAttribute="bottom" id="lpU-3z-u7j"/>
                             <constraint firstItem="NbC-mG-F1P" firstAttribute="leading" secondItem="6fJ-th-czB" secondAttribute="leading" id="mOp-Cc-Rmq"/>
                             <constraint firstItem="6fJ-th-czB" firstAttribute="trailing" secondItem="NbC-mG-F1P" secondAttribute="trailing" id="oL9-Af-jjU"/>
                             <constraint firstItem="MnD-Yo-K3K" firstAttribute="top" secondItem="6fJ-th-czB" secondAttribute="top" id="p1S-Eh-IHe"/>
+                            <constraint firstItem="3eR-Hs-GcT" firstAttribute="trailing" secondItem="6fJ-th-czB" secondAttribute="trailing" id="sl5-JP-k4i"/>
+                            <constraint firstItem="NbC-mG-F1P" firstAttribute="top" secondItem="2ad-5s-qWp" secondAttribute="bottom" id="xRD-14-HcL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6fJ-th-czB"/>
                     </view>

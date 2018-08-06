@@ -14,6 +14,7 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
+    @IBOutlet weak var takePictureButton: UIBarButtonItem!
     
     //MARK: attritubtes for text fields
     let memeTextAttributes: [String: Any] = [
@@ -26,7 +27,6 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate {
     //MARK: lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
         //custimize text fields and set text field delegates
         setTextFieldAttributesAndDelegate(text: "BOTTOM", textField: bottomTextField)
