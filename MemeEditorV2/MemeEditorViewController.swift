@@ -8,14 +8,16 @@
 
 import UIKit
 
-class MemeEditorViewController: UIViewController, UITextFieldDelegate {
+class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     // MARK: properties
-    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var displayImage: UIImageView!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     @IBOutlet weak var takePictureButton: UIBarButtonItem! //will need to disable and enable it
     @IBOutlet weak var cancelButton: UIBarButtonItem! //will need to disable and enable it
+    @IBOutlet weak var shareButton: UIBarButtonItem!
+
     
     //MARK: attritubtes for text fields
     let memeTextAttributes: [String: Any] = [
@@ -29,6 +31,8 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //shareButton not enabled till user has created a meme image
+        shareButton.isEnabled = true
         //custimize text fields and set text field delegates
         setTextFieldAttributesAndDelegate(text: "BOTTOM", textField: bottomTextField)
         setTextFieldAttributesAndDelegate(text: "TOP", textField: topTextField)
@@ -36,7 +40,8 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //takePictureButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+        //disable take picture button if device - such as the simulator - does not have a camera
+        takePictureButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         //wnat to know when keyboard will appear in order to move the view up so the appearance of the keyboard doesn't cover the bottom textfield
         subscribeToKeyboardNotifications()
         self.tabBarController?.tabBar.isHidden = true
@@ -100,18 +105,44 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate {
         let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
         return keyboardSize.cgRectValue.height
     }
+    
+    //MARK: UIImagePickerController delegate methods
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            displayImage.image = image
+            displayImage.contentMode = .scaleAspectFit
+            //only want share button to be enabled after user selects a picture
+            shareButton.isEnabled = true
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
 
     //MART IBAction functions 
     @IBAction func shareButtonPressed(_ sender: Any) {
+
     }
     
     @IBAction func cancelButtonPressed(_ sender: Any) {
+        
     }
     
     @IBAction func cameraButtonPressed(_ sender: Any) {
+        setupImagePickerController(sourceType: .camera)
     }
     
     @IBAction func albumButtonPressed(_ sender: Any) {
+        setupImagePickerController(sourceType: .photoLibrary)
+    }
+    
+    func setupImagePickerController(sourceType: UIImagePickerControllerSourceType) {
+        let pickerController = UIImagePickerController()
+        pickerController.delegate = self
+        pickerController.sourceType = sourceType
+        present(pickerController, animated: true, completion: nil )
     }
     
     
