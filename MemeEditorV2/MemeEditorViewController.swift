@@ -17,7 +17,9 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePi
     @IBOutlet weak var takePictureButton: UIBarButtonItem! //will need to disable and enable it
     @IBOutlet weak var cancelButton: UIBarButtonItem! //will need to disable and enable it
     @IBOutlet weak var shareButton: UIBarButtonItem!
-
+    @IBOutlet weak var topToolBar: UIToolbar!
+    @IBOutlet weak var bottomToolBar: UIToolbar!
+    
     
     //MARK: attritubtes for text fields
     let memeTextAttributes: [String: Any] = [
@@ -54,7 +56,7 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePi
     }
     
     
-    //MARK textfields and keyboard functions
+    //MARK: textfields and keyboard functions
     func setTextFieldAttributesAndDelegate(text: String, textField: UITextField) {
         textField.defaultTextAttributes = memeTextAttributes
         textField.text = text
@@ -121,13 +123,29 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePi
         dismiss(animated: true, completion: nil)
     }
 
-    //MART IBAction functions 
+    //MARK: IBAction functions
     @IBAction func shareButtonPressed(_ sender: Any) {
-
+        //generate a memed image
+        let memedImage = generateMemedImage()
+        
+        //define an instance of the ActivityViewController and pass it a meme as an activity item
+        let controller = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
+        
+        //present the ActivityViewController
+        present(controller, animated: true, completion: nil)
+        
+        controller.completionWithItemsHandler = {
+            (activityType: UIActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
+            if completed {
+                self.save()
+            }
+        }
     }
     
     @IBAction func cancelButtonPressed(_ sender: Any) {
-        
+        topTextField.text = "TOP"
+        bottomTextField.text = "BOTTOM"
+        displayImage.image = nil 
     }
     
     @IBAction func cameraButtonPressed(_ sender: Any) {
@@ -138,6 +156,37 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePi
         setupImagePickerController(sourceType: .photoLibrary)
     }
     
+    //MARK: meme functions
+    //MARK: meme methods
+    func generateMemedImage() -> UIImage {
+        //hide toolbars
+        topToolBar.isHidden = true
+        bottomToolBar.isHidden = true
+        
+        //render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        //show toolbars
+        topToolBar.isHidden = false
+        bottomToolBar.isHidden = false
+        
+        return memedImage
+    }
+    
+    func save() {
+        let memedImage = generateMemedImage()
+        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, pic: displayImage.image!, memedImage: memedImage)
+        
+        //save meme in array created in AppDelegate
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.memeArray.append(meme)
+        print("meme saved") //TODO: delete this line later 
+    }
+    
+    //MARK: function to reduce repetive code
     func setupImagePickerController(sourceType: UIImagePickerControllerSourceType) {
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
