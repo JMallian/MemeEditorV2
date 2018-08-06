@@ -20,6 +20,12 @@ class MemeTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
+        print("data has \(data.count) memes in it right now")
+        self.tableView.reloadData()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
     
     @objc func addButtonTapped() {
@@ -34,15 +40,20 @@ class MemeTableViewController: UITableViewController {
 //    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        <#code#>
 //    }
-//    
-//    // MARK: data source properties
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return data.count 
-//    }
-//    
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        <#code#>
-//    }
+    
+    // MARK: data source properties
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("number of rows in section called")
+        return data.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MemeTableCell")
+        print("cellForRowAt called")
+        cell?.textLabel?.text = data[indexPath.row].bottomText
+
+        return cell!
+    }
 }
 
 class MemeTableViewCell: UITableViewCell {
