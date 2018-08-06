@@ -14,7 +14,8 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
-    @IBOutlet weak var takePictureButton: UIBarButtonItem!
+    @IBOutlet weak var takePictureButton: UIBarButtonItem! //will need to disable and enable it
+    @IBOutlet weak var cancelButton: UIBarButtonItem! //will need to disable and enable it
     
     //MARK: attritubtes for text fields
     let memeTextAttributes: [String: Any] = [
@@ -100,6 +101,19 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate {
         return keyboardSize.cgRectValue.height
     }
 
-
+    //MART IBAction functions 
+    @IBAction func shareButtonPressed(_ sender: Any) {
+    }
+    
+    @IBAction func cancelButtonPressed(_ sender: Any) {
+    }
+    
+    @IBAction func cameraButtonPressed(_ sender: Any) {
+    }
+    
+    @IBAction func albumButtonPressed(_ sender: Any) {
+    }
+    
+    
 }
 
