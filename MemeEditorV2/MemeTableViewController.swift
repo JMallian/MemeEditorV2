@@ -48,18 +48,36 @@ class MemeTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MemeTableCell")
-        print("cellForRowAt called")
-        cell?.textLabel?.text = data[indexPath.row].bottomText
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MemeTableCell") as! MemeTableViewCell
+        
+        cell.topLabel.text = data[indexPath.row].topText
+        cell.bottomLabel.text = data[indexPath.row].bottomText
+        cell.cellImage.image = data[indexPath.row].pic
+        
 
-        return cell!
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(120)
     }
 }
 
-
-
-
-//hi
 class MemeTableViewCell: UITableViewCell {
+    @IBOutlet weak var topLabel: UILabel!
+    @IBOutlet weak var bottomLabel: UILabel!
+    @IBOutlet weak var cellImage: UIImageView!
+    
+//    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+//        super.init(style: style, reuseIdentifier: reuseIdentifier)
+//        
+//        cellImage.contentMode = .scaleAspectFit
+//    }
+//    
+//    required init?(coder aDecoder: NSCoder) {
+//        super.init(coder: aDecoder)
+//    }
+    
+
     
 }
