@@ -18,6 +18,20 @@ class MemeCollectionViewController: UICollectionViewController {
         return appDelegate.memeArray
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let space: CGFloat = 3.0
+        let dimension = (view.frame.size.width - (2*space)) / 3.0 //3 items per row
+        
+        //set spacing between items
+        flowLayout.minimumInteritemSpacing = space
+        //set spacing between rows
+        flowLayout.minimumLineSpacing = space
+        //set size of items, which are dependent on the size of the main view
+        flowLayout.itemSize = CGSize(width: dimension, height: dimension)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
@@ -31,21 +45,25 @@ class MemeCollectionViewController: UICollectionViewController {
         }
     }
     
-    // MARK: delegate properties
+    //MARK: delegate properties
 //    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //        <#code#>
 //    }
-//    
-//    // MARK: data source properties
-//    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return data.count
-//    }
-//    
-//    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        <#code#>
-//    }
+    
+    // MARK: data source properties
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return data.count
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemeCollectionCell", for: indexPath) as! MemeCollectionViewCell
+        cell.collectionCellImage.image = data[indexPath.row].pic
+        
+        return cell
+    }
 }
 
 class MemeCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var collectionCellImage: UIImageView!
     
 }
