@@ -35,6 +35,7 @@ class MemeCollectionViewController: UICollectionViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
+        self.collectionView?.reloadData()
     }
     
     @objc func addButtonTapped() {
