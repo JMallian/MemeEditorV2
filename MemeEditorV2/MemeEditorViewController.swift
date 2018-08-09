@@ -32,9 +32,8 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePi
     //MARK: lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         //shareButton not enabled till user has created a meme image
-        shareButton.isEnabled = true
+        shareButton.isEnabled = false
         //custimize text fields and set text field delegates
         setTextFieldAttributesAndDelegate(text: "BOTTOM", textField: bottomTextField)
         setTextFieldAttributesAndDelegate(text: "TOP", textField: topTextField)
@@ -47,6 +46,7 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePi
         //wnat to know when keyboard will appear in order to move the view up so the appearance of the keyboard doesn't cover the bottom textfield
         subscribeToKeyboardNotifications()
         self.tabBarController?.tabBar.isHidden = true
+
     }
     
     override func viewWillDisappear(_ animated: Bool) {

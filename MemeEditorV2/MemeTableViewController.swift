@@ -56,7 +56,6 @@ class MemeTableViewController: UITableViewController {
         cell.bottomLabel.text = data[indexPath.row].bottomText
         cell.cellImage.image = data[indexPath.row].pic
         
-
         return cell
     }
     
