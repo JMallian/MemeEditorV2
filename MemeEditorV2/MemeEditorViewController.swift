@@ -14,8 +14,8 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePi
     @IBOutlet weak var displayImage: UIImageView!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
-    @IBOutlet weak var takePictureButton: UIBarButtonItem! //will need to disable and enable it
-    @IBOutlet weak var cancelButton: UIBarButtonItem! //will need to disable and enable it
+    @IBOutlet weak var takePictureButton: UIBarButtonItem!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var topToolBar: UIToolbar!
     @IBOutlet weak var bottomToolBar: UIToolbar!
@@ -55,7 +55,6 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePi
         unsubscribeFromKeyboardNotifications()
         self.tabBarController?.tabBar.isHidden = false
     }
-    
     
     //MARK: textfields and keyboard functions
     func setTextFieldAttributesAndDelegate(text: String, textField: UITextField) {
@@ -158,7 +157,6 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePi
     }
     
     //MARK: meme functions
-    //MARK: meme methods
     func generateMemedImage() -> UIImage {
         //hide toolbars
         topToolBar.isHidden = true
@@ -184,7 +182,6 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePi
         //save meme in array created in AppDelegate
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.memeArray.append(meme)
-        print("meme saved") //TODO: delete this line later 
     }
     
     //MARK: function to reduce repetive code
@@ -194,7 +191,5 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePi
         pickerController.sourceType = sourceType
         present(pickerController, animated: true, completion: nil )
     }
-    
-    
 }
 
