@@ -119,6 +119,35 @@
             </objects>
             <point key="canvasLocation" x="-1746" y="-342"/>
         </scene>
+        <!--Meme Detail View Controller-->
+        <scene sceneID="8ZL-6B-fn7">
+            <objects>
+                <viewController storyboardIdentifier="MemeDetail" id="esQ-Zu-9vO" customClass="MemeDetailViewController" customModule="MemeEditorV2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dXC-QJ-75g">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sxO-LP-D45">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="qap-on-pOp" firstAttribute="trailing" secondItem="sxO-LP-D45" secondAttribute="trailing" id="BRU-XC-LJr"/>
+                            <constraint firstItem="sxO-LP-D45" firstAttribute="leading" secondItem="qap-on-pOp" secondAttribute="leading" id="GhW-jK-db7"/>
+                            <constraint firstItem="qap-on-pOp" firstAttribute="bottom" secondItem="sxO-LP-D45" secondAttribute="bottom" id="a35-lm-pm0"/>
+                            <constraint firstItem="sxO-LP-D45" firstAttribute="top" secondItem="qap-on-pOp" secondAttribute="top" id="qnL-kY-rFN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="qap-on-pOp"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageViewForMeme" destination="sxO-LP-D45" id="Bt3-6Y-mwv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zFC-ph-50A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-905" y="-538"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Q98-cb-Oh8">
             <objects>
