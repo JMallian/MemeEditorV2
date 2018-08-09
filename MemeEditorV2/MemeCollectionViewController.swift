@@ -49,7 +49,7 @@ class MemeCollectionViewController: UICollectionViewController {
     //MARK: delegate properties
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let memeDetailViewController = self.storyboard!.instantiateViewController(withIdentifier: "MemeDetail") as! MemeDetailViewController
-        memeDetailViewController.memeImage = data[indexPath.row].pic
+        memeDetailViewController.memeImage = data[indexPath.row].memedImage
         self.navigationController?.pushViewController(memeDetailViewController, animated: true)
     }
     
