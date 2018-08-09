@@ -241,7 +241,7 @@
         <scene sceneID="Ye7-Z5-ObI">
             <objects>
                 <navigationController title="Recent Memes" id="azu-xc-UAz" customClass="MemesNavigationController" customModule="MemeEditorV2" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="c5i-sB-95U"/>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="c5i-sB-95U"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eA6-Fo-hl0">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -305,7 +305,7 @@
         <scene sceneID="ELJ-ni-zJ3">
             <objects>
                 <navigationController title="Recent Memes" id="bzz-op-0P9" customClass="MemesNavigationController" customModule="MemeEditorV2" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="I5h-Td-gJ3"/>
+                    <tabBarItem key="tabBarItem" systemItem="featured" id="I5h-Td-gJ3"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Liz-8Z-8TS">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

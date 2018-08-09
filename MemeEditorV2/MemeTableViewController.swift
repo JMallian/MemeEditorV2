@@ -26,6 +26,7 @@ class MemeTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Recent Memes"
     }
     
     @objc func addButtonTapped() {

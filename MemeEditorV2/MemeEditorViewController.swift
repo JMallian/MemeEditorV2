@@ -32,6 +32,7 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePi
     //MARK: lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Meme Editor"
         //shareButton not enabled till user has created a meme image
         shareButton.isEnabled = false
         //custimize text fields and set text field delegates

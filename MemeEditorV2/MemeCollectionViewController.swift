@@ -20,7 +20,7 @@ class MemeCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.title = "Recent Memes"
         let space: CGFloat = 3.0
         let dimension = (view.frame.size.width - (2*space)) / 3.0 //3 items per row
         

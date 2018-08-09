@@ -21,6 +21,7 @@ class MemeDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         imageViewForMeme.image = memeImage
+        self.title = "Meme"
     }
     
     override func viewWillDisappear(_ animated: Bool) {
