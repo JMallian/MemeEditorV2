@@ -36,10 +36,12 @@ class MemeTableViewController: UITableViewController {
         }
     }
     
-    // MARK: delegate properties
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        <#code#>
-//    }
+    //MARK: delegate properties
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let memeDetailViewController = self.storyboard!.instantiateViewController(withIdentifier: "MemeDetail") as! MemeDetailViewController
+        memeDetailViewController.memeImage = data[indexPath.row].pic
+        self.navigationController?.pushViewController(memeDetailViewController, animated: true)
+    }
     
     // MARK: data source properties
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -67,17 +69,4 @@ class MemeTableViewCell: UITableViewCell {
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var bottomLabel: UILabel!
     @IBOutlet weak var cellImage: UIImageView!
-    
-//    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-//        super.init(style: style, reuseIdentifier: reuseIdentifier)
-//        
-//        cellImage.contentMode = .scaleAspectFit
-//    }
-//    
-//    required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//    }
-    
-
-    
 }
