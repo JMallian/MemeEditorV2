@@ -142,10 +142,9 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePi
         }
     }
     
+    //TODO: cancel button should dismiss current view controller
     @IBAction func cancelButtonPressed(_ sender: Any) {
-        topTextField.text = "TOP"
-        bottomTextField.text = "BOTTOM"
-        displayImage.image = nil 
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func cameraButtonPressed(_ sender: Any) {
