@@ -20,7 +20,6 @@ class MemeTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
-        print("data has \(data.count) memes in it right now")
         self.tableView.reloadData()
     }
     
@@ -37,16 +36,15 @@ class MemeTableViewController: UITableViewController {
         }
     }
     
-    //MARK: delegate properties
+    //MARK: delegate functions
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let memeDetailViewController = self.storyboard!.instantiateViewController(withIdentifier: "MemeDetail") as! MemeDetailViewController
         memeDetailViewController.memeImage = data[indexPath.row].pic
         self.navigationController?.pushViewController(memeDetailViewController, animated: true)
     }
     
-    // MARK: data source properties
+    // MARK: data source functions
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("number of rows in section called")
         return data.count
     }
     
