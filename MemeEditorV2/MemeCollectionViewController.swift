@@ -51,12 +51,6 @@ class MemeCollectionViewController: UICollectionViewController {
         let memeDetailViewController = self.storyboard!.instantiateViewController(withIdentifier: "MemeDetail") as! MemeDetailViewController
         memeDetailViewController.memeImage = data[indexPath.row].pic
         self.navigationController?.pushViewController(memeDetailViewController, animated: true)
-        
-        
-        
-//        let detailController = self.storyboard!.instantiateViewController(withIdentifier: "VillainDetailViewController") as! VillainDetailViewController
-//        detailController.villain = self.allVillains[(indexPath as NSIndexPath).row]
-//        self.navigationController!.pushViewController(detailController, animated: true)
     }
     
     // MARK: data source properties
@@ -73,6 +67,5 @@ class MemeCollectionViewController: UICollectionViewController {
 }
 
 class MemeCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var collectionCellImage: UIImageView!
-    
+    @IBOutlet weak var collectionCellImage: UIImageView!    
 }
