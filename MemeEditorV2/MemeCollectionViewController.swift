@@ -41,9 +41,7 @@ class MemeCollectionViewController: UICollectionViewController {
     @objc func addButtonTapped() {
         let controller: MemeEditorViewController
         controller = storyboard?.instantiateViewController(withIdentifier: "MemeEditorViewController") as! MemeEditorViewController
-        if let navigationController = navigationController {
-            navigationController.pushViewController(controller, animated: true)
-        }
+        present(controller, animated: true, completion: nil)
     }
     
     //MARK: delegate properties

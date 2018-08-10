@@ -138,12 +138,13 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePi
             (activityType: UIActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
             if completed {
                 self.save()
+                self.dismissView()
             }
         }
     }
     
     @IBAction func cancelButtonPressed(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        dismissView()
     }
     
     @IBAction func cameraButtonPressed(_ sender: Any) {
@@ -157,8 +158,7 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePi
     //MARK: meme functions
     func generateMemedImage() -> UIImage {
         //hide toolbars
-        topToolBar.isHidden = true
-        bottomToolBar.isHidden = true
+        hideTopAndBottomToolBars(shouldHide: true)
         
         //render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -167,8 +167,7 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePi
         UIGraphicsEndImageContext()
         
         //show toolbars
-        topToolBar.isHidden = false
-        bottomToolBar.isHidden = false
+        hideTopAndBottomToolBars(shouldHide: false)
         
         return memedImage
     }
@@ -188,6 +187,16 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UIImagePi
         pickerController.delegate = self
         pickerController.sourceType = sourceType
         present(pickerController, animated: true, completion: nil )
+    }
+    
+    //called when user hits cancel button or within the share function function
+    func dismissView() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func hideTopAndBottomToolBars(shouldHide: Bool) {
+        topToolBar.isHidden = shouldHide
+        bottomToolBar.isHidden = shouldHide
     }
 }
 
